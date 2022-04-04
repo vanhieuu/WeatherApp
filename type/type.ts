@@ -1,4 +1,4 @@
-
+import dayjs from "dayjs";
 export interface WeatherProps {
   id: number;
   main: string;
@@ -56,18 +56,26 @@ export const backGroundColor = {
   dark: "#25364D",
 };
 
+
+let currentTime = dayjs().get('hours')
+console.log(currentTime)
+
+
 export const DATA_FAKE = [
   {
     title: "clouds",
     icon: require("../assets/images/clouds.png"),
+    code:'01d'
   },
   {
     title: "sun",
     icon: require("../assets/images/sun.png"),
+    code:'01d',
   },
   {
     title: "sun clouds rain",
     icon: require("../assets/images/sun-clouds-rain.png"),
+    code:{}
   },
   {
     title: "lightning",

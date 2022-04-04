@@ -102,11 +102,11 @@ export default function Home({ navigation }: RootTabScreenProps<"Home">) {
         .then((result) => {
           setWeather(result);
           setSelectedCity("");
-          console.log(result,'result');
+          console.log(result, "result");
         });
   }, [selectedCity]);
 
-console.log(DATA_FAKE)
+  console.log(DATA_FAKE);
   const situationCheck = () => {
     let situation = weather?.weather[0].main;
     return (
@@ -146,17 +146,14 @@ console.log(DATA_FAKE)
       </View>
       <View>
         <View style={styles.shadowSet}>
-          {DATA_FAKE.map((item, index) => {
-            console.log(item.icon,'icon')
-            item.title === weather.weather[0].description ? (
-              <Image
-              key={item.icon.toString()}
-                source={require('../assets/images/clouds.png')}
-                style={{ width: 400, height: 400 }}
-                resizeMode="contain"
-              />
-            ) : null;
-          })}
+          <Image
+            source={{
+              uri: `http://openweathermap.org/img/w/${weather.weather[0].icon}.png`,
+            }}
+            style={{ width: 400, height: 400 }}
+            resizeMode="contain"
+          />
+          
         </View>
       </View>
     </View>
